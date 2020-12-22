@@ -1,3 +1,5 @@
 node_modules
 bundle.js
 notes.txt
+*.env
+s3.env.js
