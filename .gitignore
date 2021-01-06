@@ -3,3 +3,4 @@ bundle.js
 notes.txt
 *.env
 s3.env.js
+database/shoeImages.nosync/
