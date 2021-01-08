@@ -24,7 +24,7 @@ const modelData = async () => {
     console.log('Unable to seed demo model data');
     console.error(err);
   }
-}
+};
 
 const dummyData = async () => {
   //create 98 dummy models
@@ -32,7 +32,7 @@ const dummyData = async () => {
   for (let i = 3; i <= 100; i++) {
     randomIndex = Math.floor(Math.random() * Math.floor(keys.length));
     let filename = keys[randomIndex];
-    let url = `https://sb-gallery.s3-us-west-1.amazonaws.com/${filename}`
+    let url = `https://sb-gallery.s3-us-west-1.amazonaws.com/${filename}`;
 
     try {
       await Image.bulkCreate([
@@ -50,7 +50,7 @@ const dummyData = async () => {
       return;
     }
   }
-}
+};
 
 const seedDB = async () => {
   try {
@@ -60,6 +60,6 @@ const seedDB = async () => {
     console.log('Failed to seed data');
     console.error(err);
   }
-}
+};
 
 seedDB();

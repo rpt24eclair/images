@@ -6,7 +6,7 @@ const port = 3004;
 
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -14,10 +14,10 @@ app.get('/products/:shoeId/gallery', (req, res) => {
   let id = req.params.shoeId;
 
   // call controller, then return data or err
-})
+});
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
-})
+  console.log(`Listening on port ${port}`);
+});
 
 module.exports = app;

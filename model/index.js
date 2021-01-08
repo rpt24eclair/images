@@ -6,8 +6,8 @@ var getShoeImages = (shoeId) => {
       modelId: shoeId
     }
   });
-}
+};
 
 module.exports = {
   getShoeImages
-}
+};
