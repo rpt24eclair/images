@@ -13,7 +13,7 @@ app.get('/products/:shoeId/gallery', (req, res) => {
       res.send(data);
     })
     .catch((err) => {
-      console.log(error);
+      console.log(err);
       res.sendStatus(404);
     });
 });
