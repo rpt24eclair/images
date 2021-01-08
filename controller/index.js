@@ -1,11 +1,20 @@
-const model = require(../model/index.js);
+const model = require('../model/index.js');
 
 module.exports = {
   get: {
-    images: (shoeID) => {
+    productImages: (shoeID) => {
       return new Promise((resolve, reject) => {
         model.getShoeImages(shoeID)
-        .then((images))
+          .then((images) => {
+            let urls = images.map((image) => {
+              return image.dataValues.imageUrl;
+            });
+            resolve(urls);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+        });
     }
   }
 }
