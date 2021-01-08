@@ -1,3 +1,7 @@
 node_modules
 bundle.js
 notes.txt
+*.env
+s3.env.js
+database/shoeImages.nosync/
+exampleDataListObjS3.js

@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "build": "webpack -w"
+    "build": "webpack -w",
+    "uploadImage": "node ./database/s3/s3_upload.js sb-gallery $npm_config_file",
+    "db:seed": "mysql -u student < ./database/createDB.sql && node ./database/createTables.js && node ./database/seed.js"
   },
   "repository": {
     "type": "git",
@@ -19,11 +21,15 @@
   },
   "homepage": "https://github.com/rpt24saltysnack/somebirds-product-images#readme",
   "dependencies": {
+    "aws-sdk": "^2.821.0",
     "axios": "^0.21.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "mysql2": "^2.2.5",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react-dom": "^16.14.0",
+    "sequelize": "^6.3.5",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
