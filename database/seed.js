@@ -1,22 +1,24 @@
 const { Image } = require('./index.js');
+const create = require('./s3/s3_createBucket.js');
+const list = require('./s3/s3_listObj.js');
 
 const modelData = async () => {
   try {
     const firstModel = await Image.bulkCreate([
-      {modelId: 1, imageUrl: url},
-      {modelId: 1, imageUrl: url},
-      {modelId: 1, imageUrl: url},
-      {modelId: 1, imageUrl: url},
-      {modelId: 1, imageUrl: url},
-      {modelId: 1, imageUrl: url}
+      {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD1.jpeg'},
+      {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD2.jpeg'},
+      {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD3.jpeg'},
+      {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD5.jpeg'},
+      {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD6.jpeg'},
+      {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD8.jpg'}
     ]);
     const secondModel = await Image.bulkCreate([
-      {modelId: 2, imageUrl: url},
-      {modelId: 2, imageUrl: url},
-      {modelId: 2, imageUrl: url},
-      {modelId: 2, imageUrl: url},
-      {modelId: 2, imageUrl: url},
-      {modelId: 2, imageUrl: url}
+      {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR1.jpeg'},
+      {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR2.jpeg'},
+      {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR3.jpeg'},
+      {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR4.png'},
+      {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR5.jpeg'},
+      {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR6.png'}
     ]);
   } catch (err) {
     console.log('Unable to seed demo model data');
@@ -26,11 +28,13 @@ const modelData = async () => {
 
 const dummyData = async () => {
   //create 98 dummy models
+  let keys = await list.listAllImages();
   for (let i = 3; i <= 100; i++) {
-    let url = randomImage();
-    //upload 6 pics for each
+    randomIndex = Math.floor(Math.random() * Math.floor(keys.length));
+    let filename = keys[randomIndex];
+    let url = `https://sb-gallery.s3-us-west-1.amazonaws.com/${filename}`
+
     try {
-      //{modelId: i, imageUrl: url, locationIndex: 1},
       await Image.bulkCreate([
         {modelId: i, imageUrl: url},
         {modelId: i, imageUrl: url},
@@ -46,13 +50,6 @@ const dummyData = async () => {
       return;
     }
   }
-}
-
-function randomImage() {
-  //need to create s3 functions show all urls in bucket (listObj)
-  //generate random index from length of bucket
-  //return random image url within bucket
-  return url;
 }
 
 const seedDB = async () => {

@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
-console.log('hello');
+
 const sequelize = new Sequelize( 'sbGallery', 'student', '', {
   host: 'localhost',
   dialect: 'mysql'
@@ -30,6 +30,12 @@ const Image = sequelize.define('Image', {
     type: DataTypes.STRING,
     allowNull: false
   }
+  /* ,
+  locationIndex: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  }
+  */
 }, { timestamp: false });
 
 module.exports = {

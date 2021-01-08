@@ -1,7 +1,8 @@
+let variables = require('./env.js');
 // Load the AWS SDK for Node.js
 var AWS = require('aws-sdk');
 // Set the region
-AWS.config.update({region: 'us-west-1'});
+AWS.config.update({region: variables.region});
 
 // Create S3 service object
 s3 = new AWS.S3({apiVersion: '2006-03-01'});

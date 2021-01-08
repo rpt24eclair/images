@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
     "build": "webpack -w",
+    "uploadImage": "node ./database/s3/s3_upload.js sb-gallery $npm_config_file",
     "db:seed": "mysql -u student < node ./database/index.js"
   },
   "repository": {
