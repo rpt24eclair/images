@@ -11,9 +11,16 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/products/:shoeId/gallery', (req, res) => {
-  let id = req.params.shoeId;
-
+  let { shoeId } = req.params;
   // call controller, then return data or err
+  controller.getShoeImages(shoeId)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(error);
+      res.sendStatus(404);
+    });
 });
 
 app.listen(port, () => {

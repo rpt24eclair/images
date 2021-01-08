@@ -8,6 +8,8 @@ var getShoeImages = (shoeId) => {
   });
 };
 
+getShoeImages(1);
+
 module.exports = {
   getShoeImages
 };
