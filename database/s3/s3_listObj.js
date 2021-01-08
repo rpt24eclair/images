@@ -26,7 +26,6 @@ const listAllImages =  () => {
          let filename = image.Key;
          keys.push(filename);
        });
-       console.log(keys);
        resolve(keys);
      }
    });
