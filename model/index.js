@@ -1,6 +1,6 @@
 const { Image } = require('../database/index.js');
 
-var getImages = (shoeId) => {
+var getShoeImages = (shoeId) => {
   return Image.findAll({
     where: {
       modelId: shoeId
@@ -9,5 +9,5 @@ var getImages = (shoeId) => {
 }
 
 module.exports = {
-  getImages
+  getShoeImages
 }
