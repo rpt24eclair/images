@@ -8,14 +8,6 @@ var getShoeImages = (shoeId) => {
   });
 };
 
-// getShoeImages(1).then((images) => {
-//   console.log(images);
-//   let urls = images.map((image) => {
-//     return image.dataValues.imageUrl;
-//   });
-//   console.log(urls);
-// });
-
 module.exports = {
   getShoeImages
 };
