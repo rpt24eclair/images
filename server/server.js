@@ -4,7 +4,7 @@ const controller = require('../controller/index.js');
 const path = require('path');
 const port = 3004;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 app.get('/products/:shoeId/gallery', (req, res) => {
   let { shoeId } = req.params;
