@@ -1,0 +1,10 @@
+.grid-2-1 {
+  display: grid;
+  grid-template-columns: 52% 30%;
+  padding: 6%;
+  justify-content: center;
+}
+
+#testbox {
+  background-color: black;
+}

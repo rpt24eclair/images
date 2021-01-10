@@ -1,6 +1,7 @@
 import React, { useState, useEffect }from 'react';
 import ReactDOM from 'react-dom';
 import ImageBox from './ImageBox.jsx';
+import styles from './css/Gallery.module.css';
 const axios = require('axios');
 
 const Gallery = (props) => {
@@ -29,10 +30,16 @@ const Gallery = (props) => {
 
 
   return (
-    <div className='images'>
-      {render && <div>
+    <div className={styles.images}>
+      {/* {render && <div>
         {buildImageComponents(images)}
-      </div>}
+      </div>} */}
+      <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
+      <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
+      <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
+      <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
+      <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
+      <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
     </div>
   )
 }

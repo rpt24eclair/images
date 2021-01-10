@@ -1,0 +1,11 @@
+.images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  background-color: red;
+}
+
+.image {
+  padding: 5px;
+  align-items: center;
+}
