@@ -3,9 +3,13 @@
   grid-template-columns: 60% 30%;
   padding: 3%;
   justify-content: center;
-  max-width: 72rem;
 }
 
 #testbox {
   background-color: black;
 }
+
+/* .grid-wrapper {
+  max-width: 72rem;
+  align-content: center;
+} */

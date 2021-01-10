@@ -5,7 +5,7 @@ const ImageBox = (props) => {
 
   return (
     <div className={styles.imageCell}>
-      <img className={styles.image} key={props.i} src={props.url} height={372} width={372}/>
+      <img className={styles.image} key={props.i} src={props.url} height={1000} width={1000}/>
     </div>
   )
 }

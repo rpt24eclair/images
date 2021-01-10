@@ -31,25 +31,25 @@ const Gallery = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      {render && buildImageComponents(images)}
-      {/* <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
+      {/* {render && buildImageComponents(images)} */}
+      <div className={styles.imageCell}>
+        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
       </div>
       <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
+        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
       </div>
       <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
+        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
       </div>
       <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
+        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
       </div>
       <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
+        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
       </div>
       <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/372x372" alt="Example image"/>
-      </div> */}
+        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
+      </div>
     </div>
   )
 }

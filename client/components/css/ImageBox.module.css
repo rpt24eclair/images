@@ -1,6 +1,13 @@
+.imageCell {
+  padding:2%;
+  justify-content: center;
+}
+
 .image {
-  padding: 1%;
-  align-items: center;
-  width: 95%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding:0%;
+  width: 100%;
   height: auto;
 }
