@@ -1,12 +1,21 @@
-.images {
+.imageCell {
+  padding:2%;
+  justify-content: center;
+}
+
+.wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto;
   justify-items: center;
   background-color: red;
 }
 
 .image {
-  padding: 5px;
-  align-items: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding:0%;
+  width: 100%;
+  height: auto;
 }
