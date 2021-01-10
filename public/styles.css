@@ -1,7 +1,7 @@
 .grid-2-1 {
   display: grid;
-  grid-template-columns: 52% 30%;
-  padding: 6%;
+  grid-template-columns: 60% 30%;
+  padding: 3%;
   justify-content: center;
 }
 
