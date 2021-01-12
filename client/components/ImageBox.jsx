@@ -13,6 +13,7 @@ const ImageBox = (props) => {
     <div className={styles.imageCell} onClick={() => handleClick()}>
       <img className={styles.image} key={props.location} src={props.url} height={1000} width={1000}/>
       <div className={styles.circle}></div>
+      {/* <p className={styles.plusSign}>+</p> */}
     </div>
 
   )

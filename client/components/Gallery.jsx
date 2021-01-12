@@ -94,7 +94,7 @@ const Gallery = (props) => {
           {/* <xButton className={styles.closeModal} click={closeModal}/> */}
           <Chevron className={`${styles.chevron} ${styles.goRight}`} click={() => changeImage('right')} height={30} width={30}/>
           <Chevron className={`${styles.chevron} ${styles.goLeft}`} click={() => changeImage('left')} height={30} width={30}/>
-          <img src={images[index]} height={1000} width={1000}/>
+          <img className={styles.modalImage} src={images[index]} height={1000} width={1000}/>
         </div>
         </Modal>
     </div>

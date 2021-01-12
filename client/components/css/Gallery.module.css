@@ -31,12 +31,14 @@
   position: relative;
   top: -56%;
   left: 44%;
-  width: 10%;
-  height: 10%;
+  width: 15%;
+  height: 15%;
   background-color: white;
   border-radius: 50%;
   opacity: 0.5;
   display: none;
+  align-content: center;
+  z-index: 1;
 }
 
 .circle:hover {
@@ -57,13 +59,13 @@
 
 .modal {
   position: relative;
-  /* border: solid red 2px; */
 }
 
 .chevron {
   background-size: 50px 50px;
   background-color:white;
   border-radius: 50%;
+  transition: 0.5s;
 }
 
 .goRight {
@@ -82,4 +84,25 @@
 
 .chevron:hover {
   cursor: pointer;
+  /* height: 60px;
+  width: 60px; */
+}
+
+.modalImage {
+  width:50%;
+  height: auto;
+  position: relative;
+  top: 25%;
+  left: 25%;
+}
+
+.plusSign {
+  background-color: red;
+  position: relative;
+  top: -56%;
+  left: 44%;
+  width: 15%;
+  height: 15%;
+  text-align: center;
+  z-index: 2;
 }
