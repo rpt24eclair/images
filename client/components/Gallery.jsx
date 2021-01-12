@@ -10,6 +10,7 @@ const Gallery = (props) => {
   const [images, setImages] = useState([]);
   const [render, setRender] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [index, setIndex] = useState(null);
 
   useEffect(() => {
     let shoeId = props.modelId
@@ -42,8 +43,22 @@ const Gallery = (props) => {
 
   var subtitle;
   const [modalIsOpen,setIsOpen] = React.useState(false);
-  function openModal() {
+
+  function openModal(index) {
     setIsOpen(true);
+    setIndex(index);
+  }
+
+  function changeImage(direction) {
+    if (direction === 'left') {
+      if (index === 0) {
+        setIndex(images.length - 1)
+      } else {
+        setIndex(index - 1);
+      }
+    } else {
+      setIndex((index + 1) % images.length)
+    }
   }
 
   function afterOpenModal() {
@@ -59,23 +74,20 @@ const Gallery = (props) => {
     <div className={styles.wrapper}>
       {render && buildImageComponents(images)}
       <Modal
-          isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
 
-          <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
-          <button onClick={closeModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
+        <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
+        <div className={styles.modal}>
+          <button className={styles.closeModal} onClick={closeModal}>close</button>
+          <button className={styles.goRight} onClick={() => changeImage('right')}>right</button>
+          <button className={styles.goLeft} onClick={() => changeImage('left')}>left</button>
+          <img src={images[index]} height={1000} width={1000}/>
+        </div>
         </Modal>
     </div>
   )

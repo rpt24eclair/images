@@ -23,3 +23,25 @@
 .imageCell:hover {
   cursor: pointer;
 }
+
+.closeModal {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.modal {
+  position: relative;
+}
+
+.goRight {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+}
+
+.goLeft {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+}
