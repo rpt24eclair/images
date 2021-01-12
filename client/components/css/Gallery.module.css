@@ -8,7 +8,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   justify-items: center;
-  background-color: red;
+  background-color: white;
 }
 
 .image {
@@ -24,6 +24,25 @@
   cursor: pointer;
 }
 
+.imageCell:hover .circle {
+  display:block;
+}
+.circle {
+  position: relative;
+  top: -56%;
+  left: 44%;
+  width: 10%;
+  height: 10%;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.5;
+  display: none;
+}
+
+.circle:hover {
+  opacity: 1.0;
+}
+
 .closeModal {
   position: absolute;
   top: 0px;
@@ -32,13 +51,13 @@
 }
 
 .closeModal:hover {
+  cursor: pointer;
   transform: rotate(90deg);
-
 }
 
 .modal {
   position: relative;
-  border: solid red 2px;
+  /* border: solid red 2px; */
 }
 
 .chevron {
