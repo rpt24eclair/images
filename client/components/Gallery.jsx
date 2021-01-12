@@ -2,6 +2,8 @@ import React, { useState, useEffect }from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import ImageBox from './ImageBox.jsx';
+import Chevron from './chevron.jsx';
+import xButton from './xButton.jsx';
 import styles from './css/Gallery.module.css';
 const axios = require('axios');
 
@@ -81,11 +83,17 @@ const Gallery = (props) => {
         contentLabel="Example Modal"
       >
 
-        <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
+        <h2 ref={_subtitle => (subtitle = _subtitle)}></h2>
         <div className={styles.modal}>
-          <button className={styles.closeModal} onClick={closeModal}>close</button>
-          <button className={styles.goRight} onClick={() => changeImage('right')}>right</button>
-          <button className={styles.goLeft} onClick={() => changeImage('left')}>left</button>
+          <img
+            className={styles.closeModal}
+            onClick={closeModal}
+            src='https://sb-gallery.s3-us-west-1.amazonaws.com/cancel.svg'
+            height={30} width={30}
+          />
+          {/* <xButton className={styles.closeModal} click={closeModal}/> */}
+          <Chevron className={`${styles.chevron} ${styles.goRight}`} click={() => changeImage('right')} height={30} width={30}/>
+          <Chevron className={`${styles.chevron} ${styles.goLeft}`} click={() => changeImage('left')} height={30} width={30}/>
           <img src={images[index]} height={1000} width={1000}/>
         </div>
         </Modal>
@@ -94,33 +102,3 @@ const Gallery = (props) => {
 }
 
 export default Gallery
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
-      </div>
-      <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
-      </div>
-      <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
-      </div>
-      <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
-      </div>
-      <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
-      </div>
-      <div className={styles.imageCell}>
-        <img className={styles.image} src="https://source.unsplash.com/random/1000x1000" alt="Example image"/>
-      </div> */}

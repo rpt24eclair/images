@@ -28,20 +28,39 @@
   position: absolute;
   top: 0px;
   right: 0px;
+  transition: 0.5s;
+}
+
+.closeModal:hover {
+  transform: rotate(90deg);
+
 }
 
 .modal {
   position: relative;
+  border: solid red 2px;
+}
+
+.chevron {
+  background-size: 50px 50px;
+  background-color:white;
+  border-radius: 50%;
 }
 
 .goRight {
   position: absolute;
   top: 50%;
   right: 5px;
+  transform: rotate(-90deg);
 }
 
 .goLeft {
   position: absolute;
   top: 50%;
   left: 5px;
+  transform: rotate(90deg);
+}
+
+.chevron:hover {
+  cursor: pointer;
 }
