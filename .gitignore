@@ -7,3 +7,4 @@ database/shoeImages.nosync/
 database/shoeStyles.nosync/
 exampleDataListObjS3.js
 database/images
+aws/

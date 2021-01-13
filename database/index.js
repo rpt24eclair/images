@@ -1,7 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = new Sequelize( 'sbGallery', 'student', '', {
-  host: 'localhost',
+  host: 'ec2-54-241-116-3.us-west-1.compute.amazonaws.com', //'localhost',
+  port: 3306,
   dialect: 'mysql'
 });
 
