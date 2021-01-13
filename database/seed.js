@@ -6,9 +6,11 @@ const modelData = async () => {
   try {
     const firstModel = await Image.bulkCreate([
       {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD1.jpeg'},
-      {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD2.jpeg'},
       {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD3.jpeg'},
+      {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD2.jpeg'},
+      {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD2flip.jpeg'},
       {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD5.jpeg'},
+      {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD5flip.jpeg'},
       {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD6.jpeg'},
       {modelId: 1, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/TD8.jpg'}
     ]);
@@ -18,7 +20,9 @@ const modelData = async () => {
       {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR3.jpeg'},
       {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR4.png'},
       {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR5.jpeg'},
-      {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR6.png'}
+      {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR5flip.jpeg'},
+      {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR6.png'},
+      {modelId: 2, imageUrl: 'https://sb-gallery.s3-us-west-1.amazonaws.com/WR7.jpeg'},
     ]);
   } catch (err) {
     console.log('Unable to seed demo model data');
