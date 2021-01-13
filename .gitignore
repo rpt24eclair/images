@@ -4,4 +4,6 @@ notes.txt
 *.env
 s3.env.js
 database/shoeImages.nosync/
+database/shoeStyles.nosync/
 exampleDataListObjS3.js
+database/images

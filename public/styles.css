@@ -1,0 +1,15 @@
+.grid-2-1 {
+  display: grid;
+  grid-template-columns: 60% 30%;
+  padding: 3%;
+  justify-content: center;
+}
+
+#testbox {
+  background-color: black;
+}
+
+/* .grid-wrapper {
+  max-width: 72rem;
+  align-content: center;
+} */
