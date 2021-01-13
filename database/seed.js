@@ -1,6 +1,4 @@
 const { Image } = require('./index.js');
-const create = require('./s3/s3_createBucket.js');
-const list = require('./s3/s3_listObj.js');
 
 const modelData = async () => {
   try {

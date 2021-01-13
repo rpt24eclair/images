@@ -8,7 +8,7 @@
     "start": "nodemon ./server/server.js",
     "build": "webpack -w",
     "uploadImage": "node ./database/s3/s3_upload.js sb-gallery $npm_config_file",
-    "db:seed": "mysql -u student < ./database/createDB.sql && node ./database/createTables.js && node ./database/seed.js"
+    "db:seed": "mysql -h 54.153.5.233 -u student < ./database/createDB.sql && node ./database/createTables.js && node ./database/seed.js"
   },
   "repository": {
     "type": "git",
