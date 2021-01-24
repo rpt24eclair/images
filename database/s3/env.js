@@ -1,3 +1,3 @@
-var region = 'us-west-1';
+var region = 'us-east-2';
 
 module.exports.region = region;

@@ -14,6 +14,7 @@ const Gallery = (props) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [index, setIndex] = useState(null);
 
+
   useEffect(() => {
     let shoeId = props.modelId
     axios.get(`/products/${shoeId}/gallery`)
@@ -24,7 +25,8 @@ const Gallery = (props) => {
       .catch((err) => {
         setErrorMessage('Unable to retrieve images');
       });
-  }, [])
+
+    }, [])
 
   const buildImageComponents = (imageUrls) => {
     return imageUrls.map((image, i)=> {
@@ -71,6 +73,7 @@ const Gallery = (props) => {
   function closeModal(){
     setIsOpen(false);
   }
+
   /////////// end of modal s/f ///////////
   return (
     <div className={styles.wrapper}>

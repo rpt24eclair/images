@@ -1,9 +1,9 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize( 'sbGallery', 'student', '', {
-  // host: 'localhost',
-  host: '54.153.5.233',
-  port: 3306,
+const sequelize = new Sequelize( 'sbGallery', 'student', 'Password!23', {
+  host: 'localhost',
+  // host: '54.153.5.233',
+  // port: 3306,
   dialect: 'mysql'
 });
 
@@ -15,16 +15,6 @@ sequelize.authenticate()
 .catch((error) => {
   console.error('Unable to connect to the database:', error);
 });
-
-// var testConnection = async () => {
-//   try {
-//     await sequelize.authenticate();
-//     console.log('Connection has been established successfully.');
-//   } catch (error) {
-//     console.error('Unable to connect to the database:', error);
-//   }
-// }
-// testConnection();
 
 const Image = sequelize.define('Image', {
   id: {
@@ -40,12 +30,7 @@ const Image = sequelize.define('Image', {
     type: DataTypes.STRING,
     allowNull: false
   }
-  /* ,
-  locationIndex: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  }
-  */
+
 }, { timestamp: false });
 
 module.exports = {
