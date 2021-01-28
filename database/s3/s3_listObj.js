@@ -11,7 +11,7 @@ s3 = new AWS.S3({apiVersion: '2006-03-01'});
 // Call S3 to obtain a list of the objects in the bucket
 const listAllImages =  () => {
   return new Promise((resolve, reject) => {
-    var bucketParams = { Bucket : 'sb-gallery' };
+    var bucketParams = { Bucket : 'sb-gallery-image1' };
 
     s3.listObjects(bucketParams, function(err, data) {
      if (err) {
