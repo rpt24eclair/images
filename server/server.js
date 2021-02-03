@@ -19,14 +19,15 @@ app.get('/products/:shoeId/gallery', (req, res) => {
     });
 });
 //create
-app.post('/products/:shoeId/gallery', jsonParser,(req, res) => {
+app.post('/products/:shoeId/gallery',jsonParser,(req, res) => {
   let { shoeId } = req.params;
+  console.log(shoeId, req.body)
   controller.post.productImages(shoeId, req.body.imageUrl)
       .then((data) => {
-        res.sendStatus(201)
+      res.sendStatus(201)
       })
     .catch((err) => {
-      res.sendStatus(404);
+      res.sendStatus(404)
     });
 });
 
@@ -35,9 +36,8 @@ app.put('/products/:shoeId/gallery/:imageId', jsonParser, (req,res)=>{
   let {shoeId, imageId} = req.params;
   controller.put.productImages(shoeId, imageId, req.body.imageUrl)
     .then((data)=> {
-      res.sendStatus(404)
+      res.sendStatus(204)
     }).catch((err)=> {
-      console.log('error', err);
       res.sendStatus(404)
   })
 });
@@ -45,7 +45,7 @@ app.put('/products/:shoeId/gallery/:imageId', jsonParser, (req,res)=>{
 app.delete('/products/:shoeId/gallery/:imageId', jsonParser, (req,res)=>{
   let {shoeId, imageId} = req.params;
   controller.delete.productImages(shoeId, imageId).then((data)=> {
-    res.send('done')
+    res.sendStatus(204);
   }).catch((err)=> {
     res.sendStatus(404)
   })

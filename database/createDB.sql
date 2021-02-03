@@ -1,2 +1,0 @@
-DROP DATABASE IF EXISTS sbGallery;
-CREATE DATABASE sbGallery;

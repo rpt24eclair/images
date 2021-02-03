@@ -21,8 +21,8 @@ module.exports = {
     productImages: (shoeId, imageUrl) => {
       return new Promise((resolve, reject) => {
         model.postShoeImages(shoeId, imageUrl)
-        .then(res=>console.log('posted'))
-        .catch(err=>console.log(err))
+        .then(res=> resolve('posted'))
+        .catch(err=>reject(err))
       })
     }
   },
@@ -30,8 +30,9 @@ module.exports = {
     productImages: (shoeId, imageId, imageUrl) => {
       return new Promise((resolve, reject) => {
         model.modifyShoeImages(shoeId, imageId, imageUrl)
-        .then(res=>console.log('updated'))
-        .catch(err=>console.log(err))
+        .then(res=>resolve('updated'))
+        .catch(err=>reject(err))
+
       })
     }
   },
@@ -39,8 +40,8 @@ module.exports = {
     productImages: (shoeId, imageId) => {
       return new Promise((resolve, reject) => {
         model.deleteShoeImage(shoeId, imageId)
-        .then(res=>console.log('deleted'))
-        .catch(err=>console.log( err))
+        .then(res=>resolve('delete'))
+        .catch(err=>reject( err))
       })
     }
   }
