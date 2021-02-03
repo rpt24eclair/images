@@ -8,3 +8,6 @@ database/shoeStyles.nosync/
 exampleDataListObjS3.js
 database/images
 aws/
+database/model.csv
+database/model1.csv
+database/model2.csv

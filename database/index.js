@@ -2,7 +2,13 @@ require('dotenv').config()
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize( 'sbGallery', 'student', process.env.DB_PASS, {
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql',
+  pool: {
+    max: 100,
+    min: 0,
+    idle: 200000,
+    acquire: 1000000,
+  }
 });
 
 
@@ -25,7 +31,7 @@ const Image = sequelize.define('Image', {
     allowNull: false
   },
   imageUrl: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(50),
     allowNull: false
   }
 
