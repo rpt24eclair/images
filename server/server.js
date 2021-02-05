@@ -5,6 +5,7 @@ const path = require('path');
 const port = 3004;
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
+const putFromUrl = require('../database/s3/s3_upload.js')
 
 app.use(express.static('public'));
 
@@ -19,16 +20,15 @@ app.get('/products/:shoeId/gallery', (req, res) => {
     });
 });
 //create
-app.post('/products/:shoeId/gallery',jsonParser,(req, res) => {
+app.post('/products/:shoeId/gallery', jsonParser, (req, res) => {
   let { shoeId } = req.params;
-  console.log(shoeId, req.body)
   controller.post.productImages(shoeId, req.body.imageUrl)
-      .then((data) => {
-      res.sendStatus(201)
-      })
-    .catch((err) => {
-      res.sendStatus(404)
-    });
+  .then((data) => {
+    res.sendStatus(200)
+    })
+  .catch((err) => {
+   res.sendStatus(404)
+  });
 });
 
 //update

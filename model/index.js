@@ -3,23 +3,22 @@ const { Image } = require('../database/index.js');
 var getShoeImages = (shoeId) => {
   return Image.findAll({
     where: {
-      modelId: shoeId
+      modelid: shoeId
     }
   });
 };
 
 var postShoeImages = ( shoeId, imageUrl) =>{
-  console.log('in model')
   return Image.create({
 
-    modelId: shoeId,
-    imageUrl: imageUrl
+    modelid: shoeId,
+    imageurl: imageUrl
   })
 }
 var modifyShoeImages = (shoeId, imageId, imageUrl) => {
   return Image.findOne({
     where: {
-      modelId: shoeId,
+      modelid: shoeId,
       id: imageId
     }
 
@@ -37,10 +36,14 @@ var deleteShoeImage = (shoeId, imageId) => {
     }
   })
 }
+var findMaxImage = () => {
+  return Image.max('imageurl')
+}
 
 module.exports = {
   getShoeImages,
   postShoeImages,
   modifyShoeImages,
-  deleteShoeImage
+  deleteShoeImage,
+  findMaxImage
 };

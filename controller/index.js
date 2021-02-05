@@ -1,5 +1,5 @@
 const model = require('../model/index.js');
-
+const putFromUrl = require('../database/s3/s3_upload.js')
 module.exports = {
   get: {
     productImages: (shoeID) => {
@@ -7,7 +7,8 @@ module.exports = {
         model.getShoeImages(shoeID)
           .then((images) => {
             let urls = images.map((image) => {
-              return image.dataValues.imageUrl;
+              //return image.dataValues.imageUrl;
+              return image.imageurl;
             });
             resolve(urls);
           })
@@ -44,5 +45,14 @@ module.exports = {
         .catch(err=>reject( err))
       })
     }
-  }
+  },
+  max: {
+    productImages:() => {
+      return new Promise((resolve, reject) => {
+      model.findMaxImage()
+      .then(res=>resolve(res))
+      .catch(err=>reject(err))
+  })
+}
+}
 };
