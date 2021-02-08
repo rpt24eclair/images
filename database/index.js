@@ -1,14 +1,11 @@
 require('dotenv').config()
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize( 'sbGallery', 'student', process.env.DB_PASS, {
+const sequelize = new Sequelize( 'sbgallery', 'postgres', process.env.DB_PASS, {
   host: 'localhost',
-  dialect: 'mysql',
-  pool: {
-    max: 100,
-    min: 0,
-    idle: 200000,
-    acquire: 1000000,
-  }
+  dialect: 'postgres',
+  define: {
+    timestamps: false
+}
 });
 
 
@@ -20,22 +17,22 @@ sequelize.authenticate()
   console.error('Unable to connect to the database:', error);
 });
 
-const Image = sequelize.define('Image', {
+const Image = sequelize.define('image', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true
   },
-  modelId: {
+  modelid: {
     type: DataTypes.INTEGER,
     allowNull: false
   },
-  imageUrl: {
-    type: DataTypes.STRING(50),
+  imageurl: {
+    type: DataTypes.INTEGER,
     allowNull: false
   }
-
-}, { timestamp: false });
+})
+//}, { timestamp: false });
 
 module.exports = {
   Image
