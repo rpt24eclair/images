@@ -1,7 +1,7 @@
 const fs = require('fs')
-const writeModel = fs.createWriteStream(`model1.csv`);
+const writeModel = fs.createWriteStream(`model2.csv`);
 
- writeModel.write('id,modelId,imageUrl\n', 'utf8');
+ //writeModel.write('modelId,imageUrl\n', 'utf8');
 (async(startIndex, callback) => {
 
   var x =0;
@@ -10,7 +10,7 @@ const writeModel = fs.createWriteStream(`model1.csv`);
       x++
       let urlList = `https://images-sample-data.s3.us-east-2.amazonaws.com/image${Math.floor(Math.random() * 1000)}.png`
       //let urlList = Math.floor(Math.random()*1000)
-      var data = `${x}, ${i}, ${urlList}\n`
+      var data = `${i}, ${urlList}\n`
       if(!writeModel.write(data)) {
         await new Promise(resolve => writeModel.once('drain', resolve));
       }

@@ -1,0 +1,2 @@
+mongoimport -d sbGallery -c Images --type CSV --file /home/jvanboch/my_git/repos/SDC/somebirds-product-images/database/model2.csv --headerline
+

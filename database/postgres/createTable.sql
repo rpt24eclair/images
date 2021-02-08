@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS Images;
 
 CREATE TABLE Images(id SERIAL PRIMARY KEY, modelId INT, imageUrl VARCHAR(100));
-COPY Images
-FROM '/home/jvanboch/my_git/repos/SDC/somebirds-product-images/database/model1.csv'
+COPY Images(modelId, imageUrl)
+FROM '/home/jvanboch/my_git/repos/SDC/somebirds-product-images/database/model2.csv'
 WITH (format csv, header)
 ;
 
