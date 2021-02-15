@@ -1,49 +1,34 @@
-const { Image } = require('../database/index.js');
+const { Image} = require('../database/mongodb/index.js');
+// const { dbImage} = require('../database/mongodb/index.js');
 
 var getShoeImages = (shoeId) => {
-  return Image.findAll({
-    where: {
-      modelid: shoeId
-    }
-  });
+  return Image.find({
+      modelId: shoeId
+  })
 };
 
-var postShoeImages = ( shoeId, imageUrl) =>{
-  return Image.create({
+var postShoeImages = ( shoeId, inputUrl) =>{
+  var image =new Image()
+  image.modelId = shoeId;
+  image.imageId = 1;
+  image.imageUrl = inputUrl;
+ return image.save()
+};
 
-    modelid: shoeId,
-    imageurl: imageUrl
-  })
-}
 var modifyShoeImages = (shoeId, imageId, imageUrl) => {
-  return Image.findOne({
-    where: {
-      modelid: shoeId,
-      id: imageId
-    }
+  return Image.updateMany({modelId: shoeId, imageId: imageId}, { $set: { imageUrl: imageUrl } });
+};
 
-  }).then(shoe=>{
-    shoe.update({
-      imageUrl: imageUrl
-    })
-  })
-}
 var deleteShoeImage = (shoeId, imageId) => {
-  return Image.destroy({
-    where:{
-      modelId: shoeId,
-      id: imageId
-    }
+  return Image.deleteOne({
+    modelId: shoeId,
+    imageId: imageId
   })
-}
-var findMaxImage = () => {
-  return Image.max('imageurl')
-}
+};
 
 module.exports = {
   getShoeImages,
   postShoeImages,
   modifyShoeImages,
-  deleteShoeImage,
-  findMaxImage
+  deleteShoeImage
 };
