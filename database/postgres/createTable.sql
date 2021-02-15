@@ -1,10 +1,7 @@
 DROP TABLE IF EXISTS Images;
 
-CREATE TABLE Images(id SERIAL PRIMARY KEY, modelId INT, imageUrl VARCHAR(100));
-COPY Images(modelId, imageUrl)
-FROM '/home/jvanboch/my_git/repos/SDC/somebirds-product-images/database/model2.csv'
-WITH (format csv, header)
-;
+CREATE TABLE Images(id SERIAL PRIMARY KEY, modelId INT,imageId INT, imageUrl VARCHAR(100));
+\COPY Images(modelId, imageId, imageUrl) FROM '../model2.csv' WITH (format csv, header);
 
 
 -- INSERT INTO Images
@@ -14,3 +11,4 @@ WITH (format csv, header)
 -- \COPY Images FROM PROGRAM 'awk FNR-1 /home/jvanboch/my_git/repos/SDC/somebirds-product-images/database/test*.csv | cat' DELIMITER ',' CSV HEADER;
 
 --psql --host=ec2-54-193-118-157.us-west-1.compute.amazonaws.com --port=5432 --username=student --password --dbname=sbGallery -f createTable.sql
+

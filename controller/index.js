@@ -5,11 +5,13 @@ module.exports = {
     productImages: (shoeID) => {
       return new Promise((resolve, reject) => {
         model.getShoeImages(shoeID)
-          .then((images) => {
-            let urls = images.map((image) => {
-              //return image.dataValues.imageUrl;
-              return image.imageurl;
-            });
+          .then((result) => {
+          
+            urls = result.map(image=>{
+              var imageObj = image.toObject()
+              
+              return imageObj.imageUrl
+            })
             resolve(urls);
           })
           .catch((err) => {
@@ -56,3 +58,4 @@ module.exports = {
 }
 }
 };
+

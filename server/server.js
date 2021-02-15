@@ -6,13 +6,14 @@ const port = 3004;
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 const putFromUrl = require('../database/s3/s3_upload.js')
-
 app.use(express.static('public'));
 
 app.get('/products/:shoeId/gallery', (req, res) => {
-  let { shoeId } = req.params;
+
+  let shoeId  = req.params.shoeId*1;  
   controller.get.productImages(shoeId)
     .then((data) => {
+      console.log(data)
       res.send(data);
     })
     .catch((err) => {
@@ -21,12 +22,14 @@ app.get('/products/:shoeId/gallery', (req, res) => {
 });
 //create
 app.post('/products/:shoeId/gallery', jsonParser, (req, res) => {
-  let { shoeId } = req.params;
+  let shoeId  = req.params.shoeId*1;  
   controller.post.productImages(shoeId, req.body.imageUrl)
   .then((data) => {
+    console.log(data)
     res.sendStatus(200)
     })
   .catch((err) => {
+    console.log(err)
    res.sendStatus(404)
   });
 });
