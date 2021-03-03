@@ -1,3 +1,4 @@
+var nr = require('newrelic');
 const express = require('express');
 const app = express();
 const controller = require('../controller/index.js');

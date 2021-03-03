@@ -1,0 +1,11 @@
+config:
+  target: "http://localhost:3000/products/9999999/gallery"
+  phases:
+    - duration: 60
+      arrivalRate: 1000 
+scenarios:
+  - flow:
+      - get:
+          url: "/"
+
+#artillery run loadTestProxy.yml

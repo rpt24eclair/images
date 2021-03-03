@@ -1,0 +1,25 @@
+config:
+  target: "http://localhost:3004/products/10000001/gallery"
+  phases:
+    - duration: 60
+      arrivalRate: 1000
+scenarios:
+  - flow:
+      - post:
+          url: "/"
+          json: 
+          imageUrl: "test10.jpg"
+
+  # payload:
+  #   path: "urls.txt"
+  #   fields:
+  #     - "url"
+
+# scenarios:
+#   -
+#     name: "call all url's"
+#     flow:
+#       -
+#         get:
+#           url: "{{ url }}"
+#artillery run postLoadTest.yml

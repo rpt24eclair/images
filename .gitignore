@@ -11,3 +11,5 @@ aws/
 database/model.csv
 database/model1.csv
 database/model2.csv
+
+newrelic.js
