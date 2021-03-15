@@ -17,21 +17,30 @@ client.on("error", (error)=>{
 
 app.get('/products/:shoeId/gallery', (req, res) => {
   let shoeId  = req.params.shoeId*1;  
-  try{
-    client.get(shoeId, async(err, shoe) => {
-      if (err) throw err;
-      if (shoe) {
-        res.status(200).send({data})
-       } else {
-         controller.get.productImages(shoeId)
-           .then((data) => { res.send(data);})
-           .catch((err) => {res.sendStatus(404); });
-	 }
-     })
-   } catch(err) {
-      res.status(500).send({message:err.message});
-     }
-});
+  let searchTerm = shoeId;	 
+  client.get(searchTerm, async(err, data) => {
+	 if (err){
+		throw err;	
+	 };
+	 if (data) {
+		data = JSON.parse(data)
+		res.status(200).send(data)
+	} else {
+        	 controller.get.productImages(shoeId)
+           	.then((data) => {
+		if (data.length ===0){
+			res.sendStatus(404)
+		}else{
+		 	client.set(searchTerm, JSON.stringify(data))
+		 	res.send(data);
+		}
+	   })
+           .catch((err) => {
+		console.log(err)
+		res.sendStatus(404); });
+	   }
+ 	   })
+  });
 //create
 app.post('/products/:shoeId/gallery', jsonParser, (req, res) => {
   let shoeId  = req.params.shoeId*1;  

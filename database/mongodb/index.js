@@ -2,7 +2,7 @@
 
 require('dotenv').config()
 mongoose = require('mongoose');
-var mongoDB = `mongodb://admin:${process.env.DB_PASS}@13.56.197.239:27017/sbGallery?authSource=admin`
+var mongoDB = `mongodb://admin:${process.env.DB_PASS}@18.144.36.243:27017/sbGallery?authSource=admin`
 mongoose.connect(mongoDB, {useNewUrlParser:true, useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
