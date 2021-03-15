@@ -1,5 +1,8 @@
 var nr = require('newrelic');
+const redis = require("redis");
 const express = require('express');
+const redisPort = 6379;
+const client = redis.createClient(redisPort);
 const app = express();
 const controller = require('../controller/index.js');
 const path = require('path');
@@ -8,19 +11,36 @@ var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 const putFromUrl = require('../database/s3/s3_upload.js')
 app.use(express.static('public'));
+client.on("error", (error)=>{
+	console.log(error);
+})
 
 app.get('/products/:shoeId/gallery', (req, res) => {
-
   let shoeId  = req.params.shoeId*1;  
-  controller.get.productImages(shoeId)
-    .then((data) => {
-      console.log(data)
-      res.send(data);
-    })
-    .catch((err) => {
-      res.sendStatus(404);
-    });
-});
+  let searchTerm = shoeId;	 
+  client.get(searchTerm, async(err, data) => {
+	 if (err){
+		throw err;	
+	 };
+	 if (data) {
+		data = JSON.parse(data)
+		res.status(200).send(data)
+	} else {
+        	 controller.get.productImages(shoeId)
+           	.then((data) => {
+		if (data.length ===0){
+			res.sendStatus(404)
+		}else{
+		 	client.set(searchTerm, JSON.stringify(data))
+		 	res.send(data);
+		}
+	   })
+           .catch((err) => {
+		console.log(err)
+		res.sendStatus(404); });
+	   }
+ 	   })
+  });
 //create
 app.post('/products/:shoeId/gallery', jsonParser, (req, res) => {
   let shoeId  = req.params.shoeId*1;  
